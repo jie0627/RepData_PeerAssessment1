@@ -103,7 +103,7 @@ sub3 <- ddply(datafilled, .(interval, day), summarize, steps = mean(steps, na.rm
 max3 <- max(sub3$steps)
 max4 <- sub3[sub3$steps==max(max3),1]
 library(ggplot2)
-ggplot(data=datafilled, aes(x=interval, y=steps, group=day)) + geom_line(aes(color=day))+ facet_wrap(~ day, nrow=2)
+ggplot(data=sub3, aes(x=interval, y=steps, group=day)) + geom_line(aes(color=day))+ facet_wrap(~ day, nrow=2)
 ```
 
 ![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
