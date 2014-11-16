@@ -17,13 +17,6 @@ What is mean total number of steps taken per day?
 
 ```r
 library(plyr)
-```
-
-```
-## Warning: package 'plyr' was built under R version 3.1.1
-```
-
-```r
 sub <- ddply(data, .(date), summarize, steps = sum(steps))
 mean <- mean(sub$steps, na.rm = TRUE)
 median <- median(sub$steps, na.rm = TRUE)
@@ -110,13 +103,6 @@ sub3 <- ddply(datafilled, .(interval, day), summarize, steps = mean(steps, na.rm
 max3 <- max(sub3$steps)
 max4 <- sub3[sub3$steps==max(max3),1]
 library(ggplot2)
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.1.1
-```
-
-```r
 ggplot(data=datafilled, aes(x=interval, y=steps, group=day)) + geom_line(aes(color=day))+ facet_wrap(~ day, nrow=2)
 ```
 
